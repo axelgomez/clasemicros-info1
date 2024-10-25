@@ -7,9 +7,9 @@ Este proyecto puede descargarse e importarse en un workspace. Funciona de forma 
 
 ## Pasos para importar el proyecto
 
-**1.** En cualquier workspace con al menos un proyecto, clickear en "Import project(s) from file system" e indicar la carpeta raiz de este repositorio
-**2.** Compilar el proyecto mediante "Build Project"
-**3.** Depurar el proyecto mediante "Debug As: MCUXpresso IDE LinkServer (inc. CMSIS-DAP) probes"
+- En cualquier workspace con al menos un proyecto, clickear en `Import project(s) from file system` e indicar la carpeta raiz de este repositorio.
+- Compilar el proyecto mediante `Build Project`.
+- Depurar el proyecto mediante `Debug As: MCUXpresso IDE LinkServer (inc. CMSIS-DAP) probes`.
 
 ## Ejercicios a realizar con kit de desarrollo LPC845
 <ins>**Ejercicio 1.**</ins> **Encender** y **apagar** led **RED**
@@ -44,7 +44,7 @@ Este proyecto puede descargarse e importarse en un workspace. Funciona de forma 
 <ins>**Ejercicio 7.**</ins> **Dado electrónico** de 1 hasta 6 usando la **funcion rand**
   - Al apretar el pulsador S1 se deberán mostrar números tomados al azar cada `10ms` y al soltarlo debera quedar el último número mostrado.
 
-<ins**>Ejercicio 8.**</ins> **Leer `R22`**
+<ins>**Ejercicio 8.**</ins> **Leer `R22`**
   - Si el valor está entre `0` y `900` encender led **RED** y apagar todos los demas
   - Si el valor está entre `901` y `1800` ecender led **GREEN** y apagar todos los demas
   - Si el valor está entre `1801` y `2700` se enciende led **BLUE** y apagar todos los demas
