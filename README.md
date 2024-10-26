@@ -11,6 +11,16 @@ Este proyecto puede descargarse e importarse en un workspace. Funciona de forma 
 - Compilar el proyecto mediante `Build Project`.
 - Depurar el proyecto mediante `Debug As: MCUXpresso IDE LinkServer (inc. CMSIS-DAP) probes`.
 
+## Kit de desarrollo LPC845
+
+![Kit de desarrollo LPC845](docs/Kit_LPC845.png?raw=true)
+
+## Información útil del kit
+
+Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y el manual de usuario del LPC845 Breakout Board en el documento [UM11181](docs/UM11181.pdf).
+
+
+
 ## Ejercicios a realizar con kit de desarrollo LPC845
 <ins>**Ejercicio 1.**</ins> **Encender** y **apagar** led **RED**
    
@@ -71,9 +81,6 @@ _Nota: usar las funciones `uint16_t Get_Temperature(void)`, `uint16_t Get_Humidi
 
 _Nota: usar la función `uint16_t Get_Lux(void)`_
 
-## Información útil del kit
-
-Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y el manual de usuario del LPC845 Breakout Board en el documento [UM11181](docs/UM11181.pdf).
 
 ## Documentación de funciones
 
