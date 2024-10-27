@@ -7,12 +7,12 @@ uint32_t event;
 
 //------------------------------------------------------------------------
 // Inicializa PWM out2
-// Parametro: ninguno
+// Parametro: selector
 // Devuelve: ninguno
 //------------------------------------------------------------------------
-void PWM_Init(void){
+void PWM_Init(uint8_t selector){
     CLOCK_EnableClock(kCLOCK_Swm);
-    SWM_SetMovablePinSelect(SWM0, kSWM_SCT_OUT2, kSWM_PortPin_P0_29);
+   	SWM_SetMovablePinSelect(SWM0, kSWM_SCT_OUT2, selector);
     CLOCK_DisableClock(kCLOCK_Swm);
 
     sctimerClock = CLOCK_GetFreq(kCLOCK_Fro);
@@ -93,11 +93,10 @@ void PWM_Stop(void){
 void PWM_DeInit(void){
 
 	CLOCK_EnableClock(kCLOCK_Swm);
-    SWM_SetMovablePinSelect(SWM0, kSWM_SCT_OUT2, kSWM_PortPin_P0_5); //cambio el pin del led WBLUE al pin del RESET del micro
+    SWM_SetMovablePinSelect(SWM0, kSWM_SCT_OUT2, kSWM_PortPin_P0_5); // Selecciona el pin RESET del micro para deseleccionar el PWM
     CLOCK_DisableClock(kCLOCK_Swm);
 
 	SCTIMER_Deinit(SCT0);
-    //GPIO_Init();
 }
 //------------------------------------------------------------------------
 //------------------------------------------------------------------------

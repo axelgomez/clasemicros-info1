@@ -147,7 +147,7 @@ void Bright_Led(uint8_t bness){
 		return;
 
 	if (bness == 0){
-		if (pwm_started == 1){
+		if (pwm_started == WBLUE){
 			pwm_started = 0;
 			PWM_Stop();
 			PWM_DeInit();
@@ -156,14 +156,21 @@ void Bright_Led(uint8_t bness){
 		}
 	}
 
+	// Si ya estaba activo el PWM para el BUZZER se desactiva
+	if (pwm_started == BUZZER){
+		pwm_started = 0;
+		PWM_Stop();
+		PWM_DeInit();
+	}
+
 	if (bness > 0 && bness < 100){
 		if (pwm_started == 0){
-			pwm_started = 1;
-			PWM_Init();
+			pwm_started = WBLUE;
+			PWM_Init(kSWM_PortPin_P0_29);
 			PWM_Start(10000, bness);
 			return;
 		}
-		if (pwm_started == 1){
+		if (pwm_started == WBLUE){
 			PWM_UpdateDuty_Out2(bness);
 			return;
 		}
@@ -199,6 +206,40 @@ uint16_t Get_R22(void){
 	while(adc_data_valid == FALSE);
    	adc_data_valid = FALSE;
 	return adc_ch[8];
+}
+//------------------------------------------------------------------------------------------------------
+/*!
+ * Hace sonar el Buzzer a un frecuencia determinada
+ * parametros: (uint32_t) frecuencia, (uint32_t) milisegundos
+ */
+void Sound(uint32_t freq, uint32_t mseg){
+	if(mseg <= 0)
+		return;
+
+	// Si ya estaba activo el PWM para el led WBLUE se desactiva
+	if (pwm_started == WBLUE){
+		pwm_started = 0;
+		PWM_Stop();
+		PWM_DeInit();
+	}
+
+	if (pwm_started == 0){
+		pwm_started = BUZZER;
+		PWM_Init(kSWM_PortPin_P0_28);
+		PWM_Start(freq, 50);
+		Delay(mseg);
+		PWM_Stop();
+		PWM_DeInit();
+		pwm_started = 0;
+	}
+}
+//------------------------------------------------------------------------------------------------------
+/*!
+ * Hace sonar el Buzzer a 2500kHz
+ * parametros: (uint32_t) milisegundos
+ */
+void Beep(uint32_t mseg){
+	Sound(2500,mseg);
 }
 //------------------------------------------------------------------------------------------------------
 /*!

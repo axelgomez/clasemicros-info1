@@ -120,6 +120,10 @@ Las funciones a utilizar están desarroladas en [L4.c](source/L4.c)/[L4.h](sourc
 
 - `uint16_t Get_R22(void)` devuelve el valor analógico de R22 (0 a 4095).
 
+- `void Sound(uint32_t freq, uint32_t mseg)` hace sonar el Buzzer a una frecuencia y un tiempo determinados.
+
+- `void Beep(uint32_t mseg)` hace sonar el Buzzer a una frecuencia de 2500Hz durante un tiempo determinado.
+
 - `uint16_t Get_Temperature(void)` devuelve el valor de temperatura indicado por el BME280 en °C.
 
 - `uint16_t Get_Humidity(void)` devuelve el valor de humedad relativa porcentual indicada por el BME280.

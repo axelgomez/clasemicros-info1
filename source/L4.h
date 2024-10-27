@@ -5,7 +5,7 @@
 // enumeraciones
 //------------------------------------------------------------------------------------------------------
 enum adcs { ADC0_CH0, ADC0_CH1, ADC0_CH2, ADC0_CH3, ADC0_CH4, ADC0_CH5, ADC0_CH6, ADC0_CH7, ADC0_CH8, ADC0_CH9, ADC0_CH10, ADC0_CH11};
-enum Leds { ALL_LEDS, BLUE, RED, GREEN, WBLUE };
+enum Leds_buzzer { ALL_LEDS, BLUE, RED, GREEN, WBLUE, BUZZER };
 
 //------------------------------------------------------------------------------------------------------
 // defines
@@ -98,6 +98,18 @@ uint16_t Get_R21(void);
  * retorno: (uint16_t) valor analogico
  */
 uint16_t Get_R22(void);
+//------------------------------------------------------------------------------------------------------
+/*!
+ * Hace sonar el Buzzer a una frecuencia determinada
+ * parametros: (uint32_t) frecuencia, (uint32_t) milisegundos
+ */
+void Sound(uint32_t freq, uint32_t mseg);
+//------------------------------------------------------------------------------------------------------
+/*!
+ * Hace sonar el Buzzer a 2500kHz
+ * parametros: (uint32_t) milisegundos
+ */
+void Beep(uint32_t mseg);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Obtiene temperatura
