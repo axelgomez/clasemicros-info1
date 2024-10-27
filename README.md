@@ -86,7 +86,10 @@ _Nota: usar la función `uint16_t Get_Lux(void)`_
 
 Las funciones a utilizar están desarroladas en [L4.c](source/L4.c)/[L4.h](source/L4.h). Detalle de cada una de las funciones a utilizar:
 
-- `void Kit_Cortex_Init(void)` inicializa los módulos del kit. Entre ellos:
+```C
+void Kit_Cortex_Init(void)
+```
+- Inicializa los módulos del kit. Entre ellos:
 
     - Clock a 30MHz.
     - Pines digitales a botones y LEDs.
@@ -95,57 +98,142 @@ Las funciones a utilizar están desarroladas en [L4.c](source/L4.c)/[L4.h](sourc
     - Sensor de luz BH1750 por I2C.
     - ADC para R21 y R22.
     - Consola de debugueo si `CONSOLE_LOCAL` es 0. Consola por USART0 si `CONSOLE_LOCAL` es distinto de 0.
+<br/>
 
-- `void Led_On(uint8_t led)` se encarga de encender el LED indicado. Las opciones son:
+```C
+void Led_On(uint8_t led)
+```
+- Se encarga de encender el LED indicado. Las opciones son:
 
     - `BLUE` para el LED azul del RGB.
     - `GREEN` para el LED verde del RGB.
     - `RED` para el LED rojo del RGB.
     - `WBLUE` para el LED azul del kit (D1).
     - `ALL_LEDS` prende todos los LEDs.
+<br/>
 
-- `void Led_Off(uint8_t led)` se encarga de apagar el LED indicado. Las opciones son:
+```C
+void Led_Off(uint8_t led)
+```
+- Se encarga de apagar el LED indicado. Las opciones son:
 
     - `BLUE` para el LED azul del RGB.
     - `GREEN` para el LED verde del RGB.
     - `RED` para el LED rojo del RGB.
     - `WBLUE` para el LED azul del kit (D1).
     - `ALL_LEDS` apaga todos los LEDs.
+<br/>
 
-- `void Bright_Led(uint8_t bness)` se encarga de encender el led WBLUE con brillo entre 0 y 100
+```C
+void Bright_Led(uint8_t bness)
+```
+- Se encarga de encender el led WBLUE con brillo entre 0 y 100.
+<br/>
 
-- `void Delay(uint32_t mseg)` genera una demora en milisegundos.
+```C
+void Delay(uint32_t mseg)
+```
+- Genera una demora en milisegundos.
+<br/>
 
-- `uint16_t Get_R21(void)` devuelve el valor analógico de R21 (0 a 4095).
+```C
+uint16_t Get_R21(void)
+```
+- Devuelve el valor analógico de R21 (0 a 4095).
+<br/>
 
-- `uint16_t Get_R22(void)` devuelve el valor analógico de R22 (0 a 4095).
+```C
+uint16_t Get_R22(void)
+```
+- Devuelve el valor analógico de R22 (0 a 4095).
+<br/>
 
-- `void Sound(uint32_t freq, uint32_t mseg)` hace sonar el Buzzer a una frecuencia y un tiempo determinados.
+```C
+void Sound(uint32_t freq, uint32_t mseg)
+```
+- Hace sonar el Buzzer a una frecuencia y un tiempo determinados.
+<br/>
 
-- `void Beep(uint32_t mseg)` hace sonar el Buzzer a una frecuencia de 2500Hz durante un tiempo determinado.
+```C
+void Beep(uint32_t mseg)
+```
+- Hace sonar el Buzzer a una frecuencia de 2500Hz durante un tiempo determinado.
+<br/>
 
-- `uint16_t Get_Temperature(void)` devuelve el valor de temperatura indicado por el BME280 en °C.
+```C
+uint16_t Get_Temperature(void)
+```
+- Devuelve el valor de temperatura indicado por el BME280 en °C.
+<br/>
 
-- `uint16_t Get_Humidity(void)` devuelve el valor de humedad relativa porcentual indicada por el BME280.
+```C
+uint16_t Get_Humidity(void)
+```
+- Devuelve el valor de humedad relativa porcentual indicada por el BME280.
+<br/>
 
-- `uint16_t Get_Pressure(void)` devuelve el valor de presión en hPa indicada por el BME280.
+```C
+uint16_t Get_Pressure(void)
+```
+- Devuelve el valor de presión en hPa indicada por el BME280.
+<br/>
 
-- `uint16_t Get_Lux(void)` devuelve la intensidad lumínica en LUX indicada por el BH1750.
+```C
+uint16_t Get_Lux(void)
+```
+- Devuelve la intensidad lumínica en LUX indicada por el BH1750.
+<br/>
 
-- `void Display_Segments(uint8_t value)` escribe el valor indicado como parámetro en el display 7 segmentos siempre que sea menor a 100.
+```C
+void Display_Segments(uint8_t value)
+```
+- Escribe el valor indicado como parámetro en el display 7 segmentos siempre que sea menor a 100.
+<br/>
 
-- `uint8_t Save_Text(uint8_t *text)` escribe en la flash el array o cadena de caracteres indicado como parámetro. Devuelve 0 si falló y distinto de 0 si fue un éxito la escritura.
+```C
+uint8_t Save_Text(uint8_t *text)
+```
+- Escribe en la flash el array o cadena de caracteres indicado como parámetro. Devuelve 0 si falló y distinto de 0 si fue un éxito la escritura.
+<br/>
 
-- `void Get_Text_Saved(uint8_t *text)` guarda en el array o cadena pasada como parámetro el valor que haya en la flash.
+```C
+void Get_Text_Saved(uint8_t *text)
+```
+- Guarda en el array o cadena pasada como parámetro el valor que haya en la flash.
+<br/>
 
-- `uint8_t Get_Key_S1(void)` devuelve 0 si S1 fue presionada, sino devuelve distinto de 0.
+```C
+uint8_t Get_Key_S1(void)
+```
+- Devuelve 0 si S1 fue presionada, sino devuelve distinto de 0.
+<br/>
 
-- `uint8_t Get_Key_S2(void)` devuelve 0 si S2 fue presionada, sino devuelve distinto de 0.
+```C
+uint8_t Get_Key_S2(void)
+```
+- Devuelve 0 si el pulsador S2 fue presionado, sino devuelve distinto de 0.
+<br/>
 
-- `uint8_t Get_Key_USER(void)` devuelve 0 si USER fue presionada, sino devuelve distinto de 0.
+```C
+uint8_t Get_Key_USER(void)
+```
+- Devuelve 0 si el pulsador USER fue presionado, sino devuelve distinto de 0.
+<br/>
 
-- `uint8_t Get_Key_ISP(void)` devuelve 0 si ISP fue presionada, sino devuelve distinto de 0.
+```C
+uint8_t Get_Key_ISP(void)
+```
+- Devuelve 0 si el pulsador ISP fue presionado, sino devuelve distinto de 0.
+<br/>
 
-- `uint8_t Get_Key_CNY70(void)` devuelve 0 si no hay objeto cerca del sensor. Devuelve 1 si tiene un objeto enfrentado. Tiene que tener el jumper de CN10 colocado en el CNY70.
+```C
+uint8_t Get_Key_CNY70(void)
+```
+- Devuelve 0 si no hay un objeto cerca del sensor. Devuelve 1 si tiene un objeto enfrentado. Tiene que tener el jumper de CN10 colocado en el CNY70.
+<br/>
 
-- `void Console_Write(char console_uart, const char *format, ...)` escribe por consola el mensaje indicado siguiendo los estándares del printf.
+```C
+void Console_Write(char console_uart, const char *format, ...)
+```
+- Escribe por consola el mensaje indicado siguiendo los estándares del printf.
+<br/>
