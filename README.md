@@ -59,7 +59,7 @@ Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y 
 
 <ins>**Ejercicio 6.**</ins> **Generar** un **Beep** de 500mseg cada vez que se presiona la tecla S1 y un **Sound** de 1 segundo a 1500Hz cada vez que se presiona la tecla S2
 
-_Nota: usar las funciones `void Beep(uint32_t mseg)` y `void Sound(uint32_t freq, uint32_t mseg)`
+  _Nota: usar las funciones `void Beep(uint32_t mseg)` y `void Sound(uint32_t freq, uint32_t mseg)`_
 
 <br/>
 
