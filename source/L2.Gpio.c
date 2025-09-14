@@ -87,3 +87,37 @@ void Write_7segment(uint8_t num, uint8_t dp, uint8_t digit){
 	}
 }
 //------------------------------------------------------------------------------------------------------
+void Write_7segment_bits(uint8_t byte, uint8_t digit){
+	union {
+		uint8_t segments;
+		struct{
+			uint8_t a:1;
+			uint8_t b:1;
+			uint8_t c:1;
+			uint8_t d:1;
+			uint8_t e:1;
+			uint8_t f:1;
+			uint8_t g:1;
+			uint8_t dp:1;
+		} segment;
+	} lcd;
+	lcd.segments = byte;
+	SEG_A(lcd.segment.a);
+	SEG_B(lcd.segment.b);
+	SEG_C(lcd.segment.c);
+	SEG_D(lcd.segment.d);
+	SEG_E(lcd.segment.e);
+	SEG_F(lcd.segment.f);
+	SEG_G(lcd.segment.g);
+	SEG_DOT(lcd.segment.dp);
+
+	if(digit == 1){
+		DIGIT_1_ON;
+		DIGIT_2_OFF;
+	}
+	if(digit == 2){
+		DIGIT_2_ON;
+		DIGIT_1_OFF;
+	}
+}
+//------------------------------------------------------------------------------------------------------

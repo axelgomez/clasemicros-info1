@@ -1,11 +1,13 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+#include <L2.Gpio.h>
 //------------------------------------------------------------------------------------------------------
 // enumeraciones
 //------------------------------------------------------------------------------------------------------
 enum adcs { ADC0_CH0, ADC0_CH1, ADC0_CH2, ADC0_CH3, ADC0_CH4, ADC0_CH5, ADC0_CH6, ADC0_CH7, ADC0_CH8, ADC0_CH9, ADC0_CH10, ADC0_CH11};
 enum Leds_buzzer { ALL_LEDS, BLUE, RED, GREEN, WBLUE, BUZZER };
+enum Mode_7seg { DIGITS, BITS};
 
 //------------------------------------------------------------------------------------------------------
 // defines
@@ -43,6 +45,7 @@ enum Leds_buzzer { ALL_LEDS, BLUE, RED, GREEN, WBLUE, BUZZER };
 
 //#define Console_Write       printf
 #define Console_Read        scanf
+
 
 //------------------------------------------------------------------------------------------------------
 // prototypes
@@ -100,7 +103,7 @@ uint16_t Get_R21(void);
 uint16_t Get_R22(void);
 //------------------------------------------------------------------------------------------------------
 /*!
- * Hace sonar el Buzzer a una frecuencia determinada
+ * Hace sonar el Buzzer a una frecuencia y tiempo determinados
  * parametros: (uint32_t) frecuencia, (uint32_t) milisegundos
  */
 void Sound(uint32_t freq, uint32_t mseg);
@@ -143,9 +146,15 @@ uint8_t Get_CNY70(void);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Escribe valor en display 7 segmentos de 2 digitos
- * parameto: (uint8_t) numero a mostrar
+ * parametro: (uint8_t) numero a mostrar
  */
 void Display_Segments(uint8_t value);
+//------------------------------------------------------------------------------------------------------
+/*!
+ * Escribe valor en bits en display 7 segmentos en digito seleccionado
+ * parametro: (uint8_t) byte a mostrar, (uint8_t) digito seleccionado => 0 = display derecho, 1 = display izquierdo
+ */
+void Display_Segments_Bits(uint8_t byte, uint8_t digit);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Guarda informacion en memoria
@@ -162,25 +171,25 @@ void Get_Text_Saved(uint8_t *text);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Obtiene estado de la tecla
- * retorno: (uint8_t) 0 tecla presionada, sino ditinto de 0
+ * retorno: (uint8_t) 0 tecla presionada, sino distinto de 0
  */
 uint8_t Get_Key_S1(void);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Obtiene estado de la tecla
- * retorno: (uint8_t) 0 tecla presionada, sino ditinto de 0
+ * retorno: (uint8_t) 0 tecla presionada, sino distinto de 0
  */
 uint8_t Get_Key_S2(void);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Obtiene estado de la tecla
- * retorno: (uint8_t) 0 tecla presionada, sino ditinto de 0
+ * retorno: (uint8_t) 0 tecla presionada, sino distinto de 0
  */
 uint8_t Get_Key_USER(void);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Obtiene estado de la tecla
- * retorno: (uint8_t) 0 tecla presionada, sino ditinto de 0
+ * retorno: (uint8_t) 0 tecla presionada, sino distinto de 0
  */
 uint8_t Get_Key_ISP(void);
 //------------------------------------------------------------------------------------------------------

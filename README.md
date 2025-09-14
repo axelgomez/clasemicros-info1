@@ -191,6 +191,12 @@ void Display_Segments(uint8_t value)
 <br/>
 
 ```C
+void Display_Segments_Bits(uint8_t byte, uint8_t digit)
+```
+- Escribe el valor en bits indicado como parámetro (byte) en el display 7 segmentos en el dígito seleccionado (digit) 0 para el diplay derecho y 1 para el display izquierdo.
+<br/>
+
+```C
 uint8_t Save_Text(uint8_t *text)
 ```
 - Escribe en la flash el array o cadena de caracteres indicado como parámetro. Devuelve 0 si falló y distinto de 0 si fue un éxito la escritura.

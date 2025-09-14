@@ -6,6 +6,7 @@
 
 uint16_t adc_ch[12];
 uint8_t lcd_switch = REFRESH_7SEG, new_refresh = REFRESH_7SEG, up_no_down = 0;
+uint8_t bits_7seg_1 = 0, bits_7seg_2 = 0, digit_7seg = DIGIT_1, mode_7seg = DIGITS;
 uint8_t	dig[3]="00", digitos_7seg = 0, dig_on = DIGIT_1;
 uint8_t	buffer_txd[BUFFER_UART_TX_SIZE], buffer_rxd0[BUFFER_UART_RX_SIZE], buffer_rxd1[BUFFER_UART_RX_SIZE];
 uint8_t pwm_started = 0;
@@ -47,11 +48,21 @@ void Tick_1mseg_interrupt(void){
 		lcd_switch = new_refresh;
 		if(dig_on != DIGIT_1){
 			dig_on = DIGIT_1;
-			Write_7segment(dig[0]-0x30,1,dig_on);
+			if (mode_7seg == DIGITS){
+				Write_7segment(dig[0]-0x30,1, dig_on);
+			}
+			if (mode_7seg == BITS){
+				Write_7segment_bits(~bits_7seg_1, dig_on);
+			}
 		}
 		else{
 			dig_on = DIGIT_2;
-			Write_7segment(dig[1]-0x30,1,dig_on);
+			if (mode_7seg == DIGITS){
+				Write_7segment(dig[1]-0x30,1, dig_on);
+			}
+			if (mode_7seg == BITS){
+				Write_7segment_bits(~bits_7seg_2, dig_on);
+			}
 		}
 	}
 }
@@ -287,6 +298,22 @@ void Display_Segments(uint8_t value){
 		return;
 
 	(void) sprintf(dig,"%02d", value);
+	mode_7seg = DIGITS;
+}
+//------------------------------------------------------------------------------------------------------
+/*!
+ * Escribe valor en bits en display 7 segmentos en digito seleccionado
+ * parametro: (uint8_t) byte a mostrar
+ */
+void Display_Segments_Bits(uint8_t byte, uint8_t digit){
+	if (digit == DIGIT_1){
+		bits_7seg_1 = byte;
+	}
+	if (digit == DIGIT_2){
+		bits_7seg_2 = byte;
+	}
+	digit_7seg = digit;
+	mode_7seg = BITS;
 }
 //------------------------------------------------------------------------------------------------------
 /*!

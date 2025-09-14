@@ -56,9 +56,11 @@
 #define DIGIT_2_OFF			GPIO_PinWrite(GPIO, 0, 9, OFF)
 #define DIGIT_2_ON			GPIO_PinWrite(GPIO, 0, 9, ON)
 
+#define DISPLAY(x)          SEG_A((x >> 7) & 1); SEG_B((x >> 6) & 1); SEG_C((x >> 5) & 1); SEG_D((x >> 4) & 1); SEG_E((x >> 3) & 1); SEG_F((x >> 2) & 1); SEG_G((x >> 1) & 1); SEG_DOT((x >> 0) & 1);
 
 //---------------------------------------------------------------//
 
 void GPIO_Init(void);
 void Write_7segment(uint8_t num, uint8_t dp, uint8_t digit);
+void Write_7segment_bits(uint8_t byte, uint8_t digit);
 
