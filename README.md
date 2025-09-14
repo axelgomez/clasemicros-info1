@@ -219,7 +219,7 @@ void Display_Segments(uint8_t value)
 ```C
 void Display_Segments_Bits(uint8_t byte, uint8_t digit)
 ```
-- Escribe el valor en bits indicado como parámetro (byte) en el display 7 segmentos en el dígito seleccionado (digit) 0 para el diplay derecho y 1 para el display izquierdo.
+- Escribe el valor en bits indicado como parámetro (byte) en el display 7 segmentos en el dígito seleccionado (digit) 0 para el display derecho y 1 para el display izquierdo.
 <br/>
 
 ```C
