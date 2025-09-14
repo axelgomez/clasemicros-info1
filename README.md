@@ -23,19 +23,24 @@ Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y 
 
 ## Ejercicios a realizar con kit de desarrollo LPC845
 <ins>**Ejercicio 1.**</ins> **Encender** y **apagar** led **RED**
-   
+
    _Nota: usar las funciones `void Led_On(uint8_t led)` y `void Led_Off(uint8_t led)`_
 
-<ins>**Ejercicio2.**</ins> **Encender** y **apagar** led **RED** retardo con `for` ir probando con:
+<br/>
+
+<ins>**Ejercicio 2.**</ins> **Encender** y **apagar** led **RED** retardo con `for` ir probando con:
 * `i < 1000`
 * `i < 10000`
 * `i < 100000`
 * `...`
 
-<ins>**Ejercicio 3.**</ins> **Encender** led **WBLUE** durante **1 segundo**
- - **Apagar** led **WBLUE** durante **1 segundo**
+<br/>
+
+<ins>**Ejercicio 3.**</ins> **Encender** led **WBLUE** durante **1 segundo** y **Apagar** led **WBLUE** durante **1 segundo**
 
    _Nota: usar la función `void Delay(uint32_t mseg)`_
+
+<br/>
 
 <ins>**Ejercicio 4.**</ins> **Contador de 0 a 10** en display 7 segmentos:
   - Incrementar valor cada **1 segundo**
@@ -43,18 +48,32 @@ Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y 
 
   _Nota: usar la función `void Display_Segments(uint8_t value)`_
 
-<ins>**Ejercicio 5.**</ins> **Contador de 0 a 10** en display 7 segmentos
+<br/>
+
+<ins>**Ejercicio 5.**</ins> **Contador de 0 a 10** en display 7 segmentos:
   - Pulsador S1 incrementa valor / Pulsador S2 decrementa valor
 
   _Nota: usar las funciones `uint8_t Get_Key_S1(void)` y `uint8_t Get_Key_S2(void)`_
 
-<ins>**Ejercicio 6.**</ins> **Dado electrónico** de 1 hasta 6
+<br/>
+
+<ins>**Ejercicio 6.**</ins> **Generar** un **Beep** de 500mseg cada vez que se presiona la tecla S1 y un **Sound** de 1 segundo a 1500Hz cada vez que se presiona la tecla S2
+
+  _Nota: usar las funciones `void Beep(uint32_t mseg)` y `void Sound(uint32_t freq, uint32_t mseg)`_
+
+<br/>
+
+<ins>**Ejercicio 7.**</ins> **Dado electrónico** de 1 hasta 6:
   - Usar pulsador S1 para lanzar, al soltar S1 mostrar el número en el display 7 segmentos.
 
-<ins>**Ejercicio 7.**</ins> **Dado electrónico** de 1 hasta 6 usando la **funcion rand**
+<br/>
+
+<ins>**Ejercicio 8.**</ins> **Dado electrónico** de 1 hasta 6 usando la **funcion rand**:
   - Al apretar el pulsador S1 se deberán mostrar números tomados al azar cada `10ms` y al soltarlo debera quedar el último número mostrado.
 
-<ins>**Ejercicio 8.**</ins> **Leer `R22`**
+<br/>
+
+<ins>**Ejercicio 9.**</ins> **Leer `R22`**:
   - Si el valor está entre `0` y `900` encender led **RED** y apagar todos los demas
   - Si el valor está entre `901` y `1800` ecender led **GREEN** y apagar todos los demas
   - Si el valor está entre `1801` y `2700` se enciende led **BLUE** y apagar todos los demas
@@ -63,7 +82,9 @@ Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y 
  
   _Nota: usar la función `uint16_t Get_R22(void)`_
 
-<ins>**Ejercicio 9.**</ins> Modificar el **brillo** del led **WBLUE** en función al contador del **Ejercicio 5**
+<br/>
+
+<ins>**Ejercicio 10.**</ins> Modificar el **brillo** del led **WBLUE** en función al contador del **Ejercicio 5**
 - Si el valor es `0` brillo al `0%`
 - Si el valor es `1` brillo al `10%`
 - Si el valor es `2` brillo al `20%`
@@ -73,14 +94,19 @@ Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y 
 
   _Nota: usar la función `void Bright_Led(uint8_t bness)`
 
-<ins>**Ejercicio 10.**</ins> **Leer** la **temperatura**, **humedad** y **presión atmosférica** mediante el sensor **BME280**
+<br/>
+
+<ins>**Ejercicio 11.**</ins> **Leer** la **temperatura**, **humedad** y **presión atmosférica** mediante el sensor **BME280**
 
 _Nota: usar las funciones `uint16_t Get_Temperature(void)`, `uint16_t Get_Humidity(void)` y `uint16_t Get_Pressure(void)`_
 
-<ins>**Ejercicio 11.**</ins> **Leer** la cantidad de **lux** presentes en el sensor **BH1750**
+<br/>
+
+<ins>**Ejercicio 12.**</ins> **Leer** la cantidad de **lux** presentes en el sensor **BH1750**
 
 _Nota: usar la función `uint16_t Get_Lux(void)`_
 
+<br/>
 
 ## Documentación de funciones
 
