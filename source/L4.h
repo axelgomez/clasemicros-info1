@@ -152,7 +152,7 @@ void Display_Segments(uint8_t value);
 //------------------------------------------------------------------------------------------------------
 /*!
  * Escribe valor en bits en display 7 segmentos en digito seleccionado
- * parametro: (uint8_t) byte a mostrar, (uint8_t) digito seleccionado => 0 = display derecho, 1 = display izquierdo
+ * parametro: (uint8_t) byte a mostrar, (uint8_t) digito seleccionado => DIGIT_1 = display derecho, DIGIT_2 = display izquierdo
  */
 void Display_Segments_Bits(uint8_t byte, uint8_t digit);
 //------------------------------------------------------------------------------------------------------
