@@ -9,6 +9,7 @@
  */
 #include <L3.json.parse.h>
 #include "string.h"
+#include <stdlib.h>
 
 const char key[KEYS][10] = {
 		"leds",

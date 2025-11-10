@@ -34,7 +34,7 @@ void UART1_Init(uint32_t baudRate, uint8_t *buff_rx, uint8_t buff_rx_size){
     user_config.enableTx = true;
     user_config.enableRx = true;
     USART_Init(USART1, &user_config, CLOCK_GetFreq(kCLOCK_MainClk));
-    USART_TransferCreateHandle(USART1, &g_usartHandle1, USART1_UserCallback, NULL);
+    //USART_TransferCreateHandle(USART1, &g_usartHandle1, USART1_UserCallback, NULL);
 
     receive_usart1.data = buff_rx;    		// Prepare to receive.
     receive_usart1.dataSize = buff_rx_size;
@@ -99,7 +99,7 @@ void UART0_Init(uint32_t baudRate, uint8_t *buff_rx, uint8_t buff_rx_size){
     user_config.enableTx = true;
     user_config.enableRx = true;
     USART_Init(USART0, &user_config, CLOCK_GetFreq(kCLOCK_MainClk));
-    USART_TransferCreateHandle(USART0, &g_usartHandle0, USART0_UserCallback, NULL);
+    //USART_TransferCreateHandle(USART0, &g_usartHandle0, USART0_UserCallback, NULL);
 
     receive_usart0.data = buff_rx;    		// Prepare to receive.
     receive_usart0.dataSize = buff_rx_size;

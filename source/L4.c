@@ -322,7 +322,7 @@ void Display_Segments_Bits(uint8_t byte, uint8_t digit){
  * retorno: 0-FALSE si fallo, si no distinto de 0 (TRUE)
  */
 uint8_t Save_Text(uint8_t *text){
-	uint8_t buffer[MAX_BYTES];
+	uint32_t buffer[MAX_BYTES];
 	for(int i = 0; i < MAX_BYTES; i++){
 		buffer[i] = *text;
 		if(buffer[i] == NULL)
