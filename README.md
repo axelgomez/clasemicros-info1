@@ -92,7 +92,7 @@ Puede hallarse el esquemático del kit en [BASE_KIT_V0](docs/BASE_KIT_V0.pdf) y 
 - Si el valor es `9` brillo al `90%`
 - Si el valor es `10` brillo al `100%`
 
-  _Nota: usar la función `void Bright_Led(uint8_t bness)`
+  _Nota: usar la función `void Bright_Led(uint8_t bness)`_
 
 <br/>
 
