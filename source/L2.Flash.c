@@ -45,7 +45,7 @@ uint32_t Erase_Page(uint8_t page_inicio, uint8_t page_fin, uint32_t freq_bus){
 // Parametro: direccion, buffer, cantidad de bytes, frecuencia de clock mcu
 // Devuelve: nada
 //------------------------------------------------------------------------
-uint32_t Write_Page(uint32_t address, uint8_t *dat, uint8_t cant, uint32_t freq_bus){
+uint32_t Write_Page(uint32_t address, uint32_t *dat, uint8_t cant, uint32_t freq_bus){
 	uint32_t resp, sector;
 	sector = address / (PAGE_X_SECTOR * BYTES_X_PAGE);
 
